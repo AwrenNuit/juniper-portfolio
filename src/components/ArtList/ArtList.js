@@ -24,11 +24,11 @@ class ArtList extends Component{
 
   render(){
     return(
-      <>
+      <div className="main-map-div">
         {this.props.reduxState.map((item, i) => 
           <ArtItem item={item} key={i} i={i} />
         )}
-      </>
+      </div>
     )
   }
 }
