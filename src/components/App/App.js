@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import {HashRouter as Router, Route} from 'react-router-dom';
+import {HashRouter as Router, Route, Link} from 'react-router-dom';
 import Header from '../Header/Header';
 import ArtList from '../ArtList/ArtList';
 import Admin from '../Admin/Admin';
@@ -10,6 +10,13 @@ function App() {
     <div>
       <Header />
       <Router>
+        <nav>
+          <ul>
+            <li><Link to="/">Home</Link></li>
+            <li><Link to="/about">About</Link></li>
+            <li><Link to="/blog">Blog</Link></li>
+          </ul>
+        </nav>
         <Route exact path="/" component={ArtList} />
         <Route path="/admin" component={Admin} />
       </Router>
