@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import ArtItem from '../ArtItem/ArtItem';
+import AdminArtItem from '../AdminArtItem/AdminArtItem';
 
-class ArtList extends Component{
+class AdminArtList extends Component{
 
   componentDidMount(){
     this.getArt();
@@ -17,7 +17,7 @@ class ArtList extends Component{
     return(
       <div className="main-map-div">
         {this.props.reduxState.map((item, i) => 
-          <ArtItem item={item} key={i} i={i} />
+          <AdminArtItem item={item} key={i} i={i} />
         )}
       </div>
     )
@@ -28,4 +28,4 @@ const putReduxStateOnProps = (reduxState)=>({
   reduxState: reduxState.artReducer
 });
 
-export default connect(putReduxStateOnProps)(ArtList);
+export default connect(putReduxStateOnProps)(AdminArtList);

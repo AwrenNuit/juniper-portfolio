@@ -14,4 +14,17 @@ router.get(`/`, (req, res)=>{
     });
 });
 
+router.post(`/`, (req, res)=>{
+    console.log('in / POST with:', req.body);
+    let id = [req.body.name, req.body.medium, req.body.description, req.body.year + '-01-01', req.body.photo];
+    let SQLquery = `INSERT INTO art("name", "medium", "description", "year", "photo") VALUES($1, $2, $3, $4, $5);`;
+    pool.query(SQLquery, id)
+    .then(result=>{
+        res.sendStatus(201);
+    }).catch(error=>{
+        console.log('ERROR POSTING ART ----------------------------->', error);
+        res.sendStatus(500);
+    });
+});
+
 module.exports = router;

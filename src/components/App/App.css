@@ -34,3 +34,25 @@ img {
   padding: 20px;
   background-color: white;
 }
+
+.admin-form {
+  text-align: center;
+  margin: 10px;
+}
+
+.admin-in {
+  margin: 10px;
+}
+
+.edit-btn {
+}
+
+.admin-art-div {
+  height: 320px;
+  width: 300px;
+  padding: 20px;
+  margin: 40px;
+  text-align: center;
+  background-color: rgb(0, 0, 0);
+  color: white;
+}
