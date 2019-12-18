@@ -1,11 +1,19 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
+import axios from 'axios';
+import ArtItem from '../ArtItem/ArtItem';
 
 class ArtList extends Component{
 
+  componentDidMount(){
+    this.getArt();
+  }
+
   getArt = () => {
-    axios.get(`/art`)
+    console.log('in GET');
+    axios.get(`/portfolio`)
     .then(response=>{
+      console.log('in RESPONSE');
       this.props.dispatch({type: `SEND_ART`, payload: response.data});
     })
     .catch(error=>{
@@ -17,13 +25,16 @@ class ArtList extends Component{
   render(){
     return(
       <>
+        {this.props.reduxState.map((item, i) => 
+          <ArtItem item={item} key={i} i={i} />
+        )}
       </>
     )
   }
 }
 
 const putReduxStateOnProps = (reduxState)=>({
-  reduxState: reduxState.OBJECT
+  reduxState: reduxState.artReducer
 });
 
 export default connect(putReduxStateOnProps)(ArtList);

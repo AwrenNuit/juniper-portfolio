@@ -7,8 +7,8 @@ import {combineReducers, createStore, applyMiddleware} from 'redux';
 import {Provider} from 'react-redux';
 import logger from 'redux-logger';
 
-const REDUCER = (state=[], action) => {
-  if (action.type === 'ORDER_PIZZA'){
+const artReducer = (state=[], action) => {
+  if (action.type === 'SEND_ART'){
       return action.payload
   }
   return state;
@@ -16,7 +16,7 @@ const REDUCER = (state=[], action) => {
 
 const storeInstance = createStore(
   combineReducers({
-      REDUCER
+      artReducer
   }),
   applyMiddleware(logger)
 )

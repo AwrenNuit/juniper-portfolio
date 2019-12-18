@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import {HashRouter as Router, Route, Link} from 'react-router-dom';
+import {HashRouter as Router, Route} from 'react-router-dom';
 import Header from '../Header/Header';
 import ArtList from '../ArtList/ArtList';
 
@@ -9,7 +9,7 @@ function App() {
     <div>
       <Header />
       <Router>
-        <ArtList />
+        <Route path="/" component={ArtList} />
       </Router>
     </div>
   );
