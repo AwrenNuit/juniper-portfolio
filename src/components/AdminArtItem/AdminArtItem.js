@@ -2,6 +2,10 @@ import React, {Component} from 'react';
 
 class AdminArtItem extends Component{
 
+  handleDelete = () => {
+
+  }
+
   handleEdit = () => {
 
   }
@@ -15,6 +19,7 @@ class AdminArtItem extends Component{
           <div>{this.props.item.medium}</div>
           <div>{this.props.item.year}</div>
           <div><button className="edit-btn" onClick={this.handleEdit}>EDIT</button></div>
+          <div><button className="delete-btn" onClick={this.handleDelete}>DELETE</button></div>
         </div>
       </>
     )
