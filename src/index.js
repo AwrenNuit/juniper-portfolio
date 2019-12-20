@@ -2,7 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './components/App/App';
-import * as serviceWorker from './serviceWorker';
 import {combineReducers, createStore, applyMiddleware} from 'redux';
 import {Provider} from 'react-redux';
 import logger from 'redux-logger';
@@ -11,8 +10,9 @@ import createSagaMiddleware from 'redux-saga';
 import {takeEvery, put} from 'redux-saga/effects';
 
 function* rootSaga(){
-  yield takeEvery(`GET_ART`, getArtSaga);
   yield takeEvery(`ADD_ART`, addArtSaga);
+  yield takeEvery(`DELETE_ART`, deleteArtSaga);
+  yield takeEvery(`GET_ART`, getArtSaga);
 }
 
 function* addArtSaga(action){
@@ -23,6 +23,17 @@ function* addArtSaga(action){
   }
   catch(error){
     console.log('error in POST', error);
+  }
+}
+
+function* deleteArtSaga(action){
+  console.log('in DELETE with:', action.payload);
+  try{
+    yield axios.post(`/portfolio/${action.payload}`);
+    yield put({type: `GET_ART`});
+  }
+  catch(error){
+    console.log('error in DELETE', error);
   }
 }
 
@@ -49,15 +60,10 @@ const sagaMiddleware = createSagaMiddleware();
 const storeInstance = createStore(
   combineReducers({
       artReducer
-  }),
+}),
   applyMiddleware(sagaMiddleware, logger)
 )
 
 sagaMiddleware.run(rootSaga);
 
 ReactDOM.render(<Provider store={storeInstance}><App /></Provider>, document.getElementById('root'));
-
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();

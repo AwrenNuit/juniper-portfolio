@@ -2,6 +2,19 @@ const express = require(`express`);
 const router = express.Router();
 const pool = require(`../modules/pool`);
 
+router.delete(`/:id`, (req, res)=>{
+    console.log('in /:id DELETE with:', req.params.id);
+    let id = [req.params.id];
+    let SQLquery = `DELETE FROM art WHERE id = $1;`;
+    pool.query(SQLquery, id)
+    .then(result=>{
+        res.sendStatus(200);
+    }).catch(error=>{
+        console.log('ERROR DELETING ART ----------------------------->', error);
+        res.sendStatus(500);
+    });
+});
+
 router.get(`/`, (req, res)=>{
     console.log('in / GET');
     let SQLquery = `SELECT * FROM art;`;
