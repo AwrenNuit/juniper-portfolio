@@ -40,4 +40,17 @@ router.post(`/`, (req, res)=>{
     });
 });
 
+router.put(`/:id`, (req, res)=>{
+    console.log('in /:id PUT with:', req.params.id);
+    let id = [req.params.id];
+    let SQLquery = `UPDATE FROM art WHERE id = $1;`;
+    pool.query(SQLquery, id)
+    .then(result=>{
+        res.sendStatus(200);
+    }).catch(error=>{
+        console.log('ERROR PUTTING ART ----------------------------->', error);
+        res.sendStatus(500);
+    });
+});
+
 module.exports = router;

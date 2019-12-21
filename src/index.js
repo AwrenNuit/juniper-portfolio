@@ -12,6 +12,7 @@ import {takeEvery, put} from 'redux-saga/effects';
 function* rootSaga(){
   yield takeEvery(`ADD_ART`, addArtSaga);
   yield takeEvery(`DELETE_ART`, deleteArtSaga);
+  yield takeEvery(`EDIT_ART`, editArtSaga);
   yield takeEvery(`GET_ART`, getArtSaga);
 }
 
@@ -34,6 +35,17 @@ function* deleteArtSaga(action){
   }
   catch(error){
     console.log('error in DELETE', error);
+  }
+}
+
+function* editArtSaga(action){
+  console.log('in PUT with:', action.payload);
+  try{
+    yield axios.put(`/portfolio/${action.payload}`);
+    yield put({type: `GET_ART`});
+  }
+  catch(error){
+    console.log('error in PUT', error);
   }
 }
 
