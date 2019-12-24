@@ -8,7 +8,7 @@ class AdminArtItem extends Component{
   }
 
   componentDidUpdate(){
-    this.props.dispatch({type: `EDIT_ART`, payload: id});
+    this.props.dispatch({type: `EDIT_ART`});
   }
 
   handleDelete = (id) => {
@@ -46,8 +46,8 @@ class AdminArtItem extends Component{
     //         <div><button className="delete-btn" onClick={()=>this.handleDelete(this.props.item.id)}>DELETE</button></div>
     //       </div>
     //     </>
-      )
-    }
+      // )
+    // }
   }
 }
 

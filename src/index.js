@@ -14,6 +14,7 @@ function* rootSaga(){
   yield takeEvery(`DELETE_ART`, deleteArtSaga);
   yield takeEvery(`EDIT_ART`, editArtSaga);
   yield takeEvery(`GET_ART`, getArtSaga);
+  yield takeEvery(`GET_THIS_ART`, getThisArtSaga);
 }
 
 function* addArtSaga(action){
@@ -60,9 +61,27 @@ function* getArtSaga(){
   }
 }
 
+function* getThisArtSaga(action){
+  console.log('in GET THIS with:', action.payload);
+  try{
+    const getResponse = yield axios.get(`/portfolio/${action.payload}`);
+    yield put({type: `SEND_THIS_ART`, payload: getResponse.data});
+  }
+  catch(error){
+    console.log('error in GET THIS', error);
+  }
+}
+
 const artReducer = (state=[], action) => {
   if (action.type === 'SEND_ART'){
-      return action.payload
+      return action.payload;
+  }
+  return state;
+}
+
+const thisArtReducer = (state=[], action) => {
+  if (action.type === 'SEND_THIS_ART'){
+      return action.payload;
   }
   return state;
 }
@@ -71,7 +90,8 @@ const sagaMiddleware = createSagaMiddleware();
 
 const storeInstance = createStore(
   combineReducers({
-      artReducer
+      artReducer,
+      thisArtReducer
 }),
   applyMiddleware(sagaMiddleware, logger)
 )

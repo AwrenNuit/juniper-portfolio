@@ -3,6 +3,8 @@ import './App.css';
 import {HashRouter as Router, Route, Link} from 'react-router-dom';
 import Header from '../Header/Header';
 import ArtList from '../ArtList/ArtList';
+import ThisArt from '../ThisArt/ThisArt';
+import About from '../About/About';
 import Admin from '../Admin/Admin';
 
 function App() {
@@ -18,6 +20,8 @@ function App() {
           </ul>
         </nav>
         <Route exact path="/" component={ArtList} />
+        <Route path="/details/:id" component={ThisArt} />
+        <Route path="/about" component={About} />
         <Route path="/admin" component={Admin} />
       </Router>
     </div>

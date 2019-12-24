@@ -17,16 +17,16 @@ body {
 nav ul li {
   list-style: none;
   display: inline-block;
-  margin-right: 10px;
+  padding: 10px;
+}
+
+nav ul li:hover {
+  background-color: lightpink;
 }
 
 nav ul li a {
   text-decoration: none;
   color: black;
-}
-
-nav ul li a:hover {
-  background-color: lightpink;
 }
 
 .main-map-div {
@@ -41,13 +41,47 @@ nav ul li a:hover {
   margin: 40px;
   text-align: center;
   background-color: rgb(0, 0, 0);
+  border-radius: 25px;
   color: white;
 }
 
-img {
+.art-img {
   height: 200px;
   padding: 20px;
   background-color: white;
+}
+
+.art-title {
+  font-weight: bold;
+  font-size: 1.2em;
+}
+
+.art-medium {
+  font-style: italic;
+}
+
+.this-art-div {
+  padding: 20px;
+  margin: 40px;
+  text-align: center;
+  background-color: rgb(0, 0, 0);
+  border-radius: 25px;
+  color: white;
+}
+
+.this-art-img {
+  height: 500px;
+  padding: 20px;
+  background-color: white;
+}
+
+.this-art-title {
+  font-weight: bold;
+  font-size: 2.8em;
+}
+
+.this-art-desc {
+  padding-top: 30px;
 }
 
 .admin-form {

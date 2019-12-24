@@ -27,6 +27,19 @@ router.get(`/`, (req, res)=>{
     });
 });
 
+router.get(`/:id`, (req, res)=>{
+    console.log('in /id GET with:', req.params.id);
+    let id = [req.params.id];
+    let SQLquery = `SELECT * FROM art WHERE id = $1;`;
+    pool.query(SQLquery, id)
+    .then(result=>{
+        res.send(result.rows);
+    }).catch(error=>{
+        console.log('ERROR GETTING THIS ART ----------------------------->', error);
+        res.sendStatus(500);
+    });
+});
+
 router.post(`/`, (req, res)=>{
     console.log('in / POST with:', req.body);
     let id = [req.body.name, req.body.medium, req.body.description, req.body.year + '-01-01', req.body.photo];
