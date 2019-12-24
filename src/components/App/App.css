@@ -118,3 +118,8 @@ nav ul li a {
 .about-quote {
   margin: 0 60px;
 }
+
+h2 {
+  text-decoration: underline;
+  text-align: center;
+}
