@@ -4,10 +4,9 @@ class About extends Component{
 
   render(){
     return(
-      <>
+      <div className="flex">
         <img src="images/juniper-about.jpg" alt="Juniper" style={{height:'400px'}} />
-        <br />
-        <div>
+        <div className="about-p">
           <p> Since a young age I've been fascinated by all things whimscial and mysterious.
               I would spend hours creating sculptures from household items. As I grew older I started 
               experimenting with all sorts of mediums - charcoal, wire-wrapped jewelry, glass blowing, 
@@ -16,7 +15,7 @@ class About extends Component{
               with one of the most inspiring quotes I've ever read: 
           </p>
           <br />
-          <p> "On all earth, living creatures 
+          <p className="about-quote"> "On all earth, living creatures 
               rend one another, and feast with unutterable cruelty on their kith and kin. No worm-mind 
               can control a bestial man-body when it yearns to raven. Only man-minds instinctively 
               conditioned through the course of ten thousand generations can keep the human instincts 
@@ -26,7 +25,7 @@ class About extends Component{
               itself in seeking to return to the slime from which it sprang."
           </p>
         </div>
-      </>
+      </div>
     )
   }
 }
