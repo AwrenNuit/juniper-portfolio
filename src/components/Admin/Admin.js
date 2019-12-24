@@ -1,6 +1,11 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import AdminArtList from "../AdminArtList/AdminArtList";
+import Fab from '@material-ui/core/Fab';
+import AddIcon from '@material-ui/icons/Add';
+import Tooltip from '@material-ui/core/Tooltip';
+import TextField from '@material-ui/core/TextField';
+
 
 class Admin extends Component{
 
@@ -40,38 +45,62 @@ class Admin extends Component{
     return(
       <>
         <form className="admin-form" onSubmit={this.handleSubmit}>
-          <input type="text" className="admin-in"
-          onChange={(event)=>this.handleChange(event, 'name')} 
-          value={this.state.name}
-          placeholder="name" />
+          <h2>Add Some Art!</h2>
           
-          <input type="text" className="admin-in"
-          onChange={(event)=>this.handleChange(event, 'medium')} 
-          value={this.state.medium}
-          placeholder="medium" />
+          <TextField  id="outlined-basic" 
+                      label="name" 
+                      variant="outlined" 
+                      onChange={(event)=>this.handleChange(event, 'name')} 
+                      value={this.state.name} 
+                      style={{margin:'10px'}}
+          />
 
-          <br />
-          
-          <input type="text" className="admin-in"
-          onChange={(event)=>this.handleChange(event, 'photo')} 
-          value={this.state.photo}
-          placeholder="photo" />
-          
-          <input type="number" className="admin-in"
-          onChange={(event)=>this.handleChange(event, 'year')} 
-          value={this.state.year}
-          placeholder="year" />
-          
-          <br />
-
-          <textarea rows="4" className="admin-in"
-          onChange={(event)=>this.handleChange(event, 'description')} 
-          value={this.state.description}
-          placeholder="description"></textarea>
+          <TextField  id="outlined-basic" 
+                      label="medium" 
+                      variant="outlined" 
+                      onChange={(event)=>this.handleChange(event, 'medium')} 
+                      value={this.state.medium} 
+                      style={{margin:'10px'}}
+          />
 
           <br />
 
-          <button className="admin-btn" type="submit">Add</button>
+          <TextField  id="outlined-basic" 
+                      label="photo" 
+                      variant="outlined" 
+                      onChange={(event)=>this.handleChange(event, 'photo')} 
+                      value={this.state.photo} 
+                      style={{margin:'10px'}}
+          />
+          
+          <TextField  id="outlined-basic" 
+                      label="year (2020-01-01)" 
+                      variant="outlined" 
+                      onChange={(event)=>this.handleChange(event, 'year')} 
+                      value={this.state.year} 
+                      style={{margin:'10px'}}
+          />
+          
+          <br />
+
+          <TextField  id="outlined-basic" 
+                      label="description" 
+                      variant="outlined" 
+                      onChange={(event)=>this.handleChange(event, 'description')} 
+                      value={this.state.description} 
+                      style={{margin:'10px'}}
+                      multiline
+          />
+
+          <br />
+          <br />
+
+          <Tooltip title="Add" aria-label="add">
+            <Fab color="primary" aria-label="add" type="submit">
+              <AddIcon />
+            </Fab>
+          </Tooltip>
+
         </form>
         <AdminArtList />
       </>
