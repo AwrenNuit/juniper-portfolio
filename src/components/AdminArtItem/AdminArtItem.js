@@ -2,6 +2,10 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import Moment from 'react-moment';
 import {Link} from 'react-router-dom';
+import Fab from '@material-ui/core/Fab';
+import Tooltip from '@material-ui/core/Tooltip';
+import BrushIcon from '@material-ui/icons/Brush';
+import RemoveIcon from '@material-ui/icons/Remove';
 
 class AdminArtItem extends Component{
 
@@ -26,13 +30,24 @@ class AdminArtItem extends Component{
           <div className="art-medium">{this.props.item.medium}</div>
           <div><Moment format="YYYY">{this.props.item.year}</Moment></div>
           
-          <div>
-            <Link to={"/edit/"+this.props.item.id}>
-              <button className="edit-btn" onClick={()=>this.handleEdit(this.props.item.id)}>EDIT</button>
-            </Link>
-          </div>
+          <span style={{marginRight:'180px'}}>
+            <Tooltip title="Delete" aria-label="delete">
+              <Fab color="secondary" aria-label="delete" onClick={()=>this.handleDelete(this.props.item.id)}>
+                <RemoveIcon />
+              </Fab>
+            </Tooltip>
+          </span>
 
-          <div><button className="delete-btn" onClick={()=>this.handleDelete(this.props.item.id)}>DELETE</button></div>
+          <span>
+            <Link to={"/edit/"+this.props.item.id}>
+              <Tooltip title="Edit" aria-label="edit">
+                <Fab color="primary" aria-label="edit" onClick={()=>this.handleEdit(this.props.item.id)}>
+                  <BrushIcon />
+                </Fab>
+              </Tooltip>
+            </Link>
+          </span>
+
         </div>
       </>
     )
