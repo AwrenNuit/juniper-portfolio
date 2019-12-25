@@ -130,13 +130,14 @@ h2 {
 
 .art-types-ul {
   text-align: center;
-  text-decoration: none;
+  list-style: none;
   color: white;
   margin: 20px;
 }
 
 .art-types-li {
   padding: 0 10px;
+  display: inline-block;
 }
 
 .art-types-li:hover {
@@ -146,4 +147,5 @@ h2 {
 
 .art-types-pipe {
   cursor: pointer;
+  display: inline-block;
 }
