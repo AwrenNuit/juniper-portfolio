@@ -1,5 +1,6 @@
 * {
   margin: 0;
+  justify-content: center;
 }
 
 body {
@@ -41,7 +42,7 @@ nav ul li a {
   padding: 20px;
   margin: 40px;
   text-align: center;
-  background: linear-gradient(to top, rgb(7, 87, 0), rgb(8, 97, 0)) ;
+  background: linear-gradient(to top, #000, #222) ;
   border-radius: 45px;
   box-shadow: 0 0 30px white;
   color: white;
@@ -123,4 +124,22 @@ nav ul li a {
 h2 {
   text-decoration: underline;
   text-align: center;
+  color: white;
+  margin-top: 50px;
+}
+
+.art-types-ul {
+  text-align: center;
+  text-decoration: none;
+  color: white;
+  margin: 20px;
+}
+
+.art-types-li {
+  padding: 0 10px;
+}
+
+.art-types-li:hover {
+  background-color: rgb(102, 111, 231);
+  cursor: pointer;
 }
