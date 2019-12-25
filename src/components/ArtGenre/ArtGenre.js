@@ -11,18 +11,18 @@ class ArtGenre extends Component{
     return(
       <>
         <nav>
-            <ul className="art-types-ul">
-              <li className="art-types-li" onClick={()=>this.handleClick('ceramics')}>Ceramics</li>
-              <li>|</li>
-              <li className="art-types-li" onClick={()=>this.handleClick('drawing')}>Drawing</li>
-              <li>|</li>
-              <li className="art-types-li"onClick={()=>this.handleClick('glass blowing')}>Glass Blowing</li>
-              <li>|</li>
-              <li className="art-types-li" onClick={()=>this.handleClick('painting')}>Painting</li>
-              <li>|</li>
-              <li className="art-types-li" onClick={()=>this.handleClick('sculpture')}>Sculpture</li>
-            </ul>
-          </nav>
+          <ul className="art-types-ul">
+            <li className="art-types-li" onClick={()=>this.handleClick('ceramics')}>Ceramics</li>
+            <li>|</li>
+            <li className="art-types-li" onClick={()=>this.handleClick('drawing')}>Drawing</li>
+            <li>|</li>
+            <li className="art-types-li"onClick={()=>this.handleClick('glass blowing')}>Glass Blowing</li>
+            <li>|</li>
+            <li className="art-types-li" onClick={()=>this.handleClick('painting')}>Painting</li>
+            <li>|</li>
+            <li className="art-types-li" onClick={()=>this.handleClick('sculpture')}>Sculpture</li>
+          </ul>
+        </nav>
       </>
     )
   }
