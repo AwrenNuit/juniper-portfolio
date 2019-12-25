@@ -14,9 +14,9 @@ function App() {
       <Router>
         <nav>
           <ul>
-            <li><Link to="/">Home</Link></li>
-            <li><Link to="/about">About</Link></li>
-            <li><Link to="/blog">Blog</Link></li>
+            <li className="app-nav-li"><Link to="/">Home</Link></li>
+            <li className="app-nav-li"><Link to="/about">About</Link></li>
+            <li className="app-nav-li"><Link to="/blog">Blog</Link></li>
           </ul>
         </nav>
         <Route exact path="/" component={ArtList} />

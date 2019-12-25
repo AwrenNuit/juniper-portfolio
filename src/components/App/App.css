@@ -16,16 +16,16 @@ body {
   padding-bottom: 30px;
 }
 
-nav ul li {
+.app-nav-li {
   list-style: none;
   display: inline-block;
 }
 
-nav ul li:hover {
+.app-nav-li:hover {
   background-color: lightpink;
 }
 
-nav ul li a {
+.app-nav-li a {
   text-decoration: none;
   color: white;
   padding: 10px;
@@ -141,5 +141,9 @@ h2 {
 
 .art-types-li:hover {
   background-color: rgb(102, 111, 231);
+  cursor: pointer;
+}
+
+.art-types-pipe {
   cursor: pointer;
 }
