@@ -16,7 +16,7 @@ Here is an art portfolio for Juniper. She wanted a way to easily add art one of 
 - Download or clone this repository
 - Run 'npm install' from the command line
 - Set up the database, I recommend using Postico
-- 'npm run server' & 'npm run client' start it up
+- 'npm run server' & 'npm run client' to run the project
 
 ## Future Plans
 - Improve reducer functionality
