@@ -12,6 +12,12 @@ Here is an art portfolio for Juniper. She wanted a way to easily add art one of 
 - PostgreSQL
 - Material-UI
 
+## Installation
+- Download or clone this repository
+- Run 'npm install' from the command line
+- Set up the database, I recommend using Postico
+- 'npm run server' & 'npm run client' start it up
+
 ## Future Plans
 - Improve reducer functionality
 - Streamline database/database queries
